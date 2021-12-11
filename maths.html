@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="awsm.css">
+    <title>Presenter</title>
+    <style>
+        body{
+            background-position: 0 100% 100% 0;
+            background-repeat: no-repeat;
+            background-size: contain;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; 
+            height: 100vh;
+        }
+        .container{
+            margin: auto;
+            text-align: center;
+            width: 100%;
+            padding-top: calc(100% - 98%);
+        }
+        h2{
+            font-size: 3rem;
+        }
+        #quesno{
+            font-size: 3rem;
+            padding: 1rem;
+            /* background-color: green; */
+            color: green;
+            display: inline;
+            font-weight: 800;
+        }   
+        h5{
+            font-size: 3rem;
+        }
+
+        .options{   
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);   
+            margin: 1rem;   
+            row-gap: 1rem; 
+        }
+
+        .logo{
+            position: absolute;
+            bottom: 1%;
+            right: 1%;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span id="quesno"></span>
+        <h2 id="question"></h2>
+        <div class="options">
+            <h5>A. <span id="opta"></span> </h5>
+            <h5>B. <span id="optb"></span> </h5>
+            <h5>C. <span id="optc"></span> </h5>
+            <h5>D. <span id="optd"></span> </h5>
+            <h5>E. <span id="opte"></span> </h5>
+        </div>
+        <img class="logo" src="mssnlogo.png" alt="">
+    </div>
+    <script src="hotkeys.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

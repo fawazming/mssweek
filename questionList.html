@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="awsm.css">
+    <title>Q List</title>
+    
+</head>
+<body>
+    <div class="container">
+        <ul id="qlists">
+        
+        </ul>
+        
+        <img class="logo" src="mssnlogo.png" alt="">
+    </div>
+    <script>
+     let = questions = []   
+fetch('https://raw.githubusercontent.com/fawazming/MSS-Week/main/questions.json')
+.then(res=>res.json())
+.then(data => {
+  questions = data.questions
+//   console.log(questions)
+
+})
+
+function pushQ(id){
+    question = questions.find((q,i)=>{
+      return q.id == id
+    });
+    // console.log(questions)
+    document.querySelector('#qlists').insertAdjacentHTML('beforeend', 
+    `<p>Q<span id="quesno">${question.id}</span> &nbsp;&nbsp;<span id="question">${question.question}</span>&nbsp;(a) <span id="opta">${question.optA}</span> (b) <span id="optb">${question.optB}</span> (c) <span id="optc">${question.optC}</span> (d) <span id="optd">${question.optD}</span> (e) <span id="opte">${question.optE}</span></p>`
+    );
+}
+setTimeout(() => {
+    for (let i = 0; i < questions.length; i++) {
+        pushQ(i+1)
+    }
+}, 3000);
+
+
+function changeView(id){
+    question = questions.find((q,i)=>{
+      return q.id == id
+    });
+    document.querySelector('#quesno').innerHTML = question.id
+    document.querySelector('#question').innerHTML = question.question
+    document.querySelector('#opta').innerHTML = question.optA
+    document.querySelector('#optb').innerHTML = question.optB
+    document.querySelector('#optc').innerHTML = question.optC
+    document.querySelector('#optd').innerHTML = question.optD
+    document.querySelector('#opte').innerHTML = question.optE
+}
+
+    </script>
+</body>
+</html>
